@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
 
@@ -23,6 +24,7 @@ import org.dolphinemu.dolphinemu.features.settings.model.BooleanSetting;
 public final class MenuFragment extends Fragment implements View.OnClickListener
 {
   private TextView mTitleText;
+  private ImageView mImageCover;
   private View mPauseEmulation;
   private View mUnpauseEmulation;
 
@@ -123,6 +125,7 @@ public final class MenuFragment extends Fragment implements View.OnClickListener
     rootView.findViewById(R.id.menu_exit).setOnClickListener(this);
 
     mTitleText = rootView.findViewById(R.id.text_game_title);
+    mImageCover = rootView.findViewById(R.id.ingame_cover);
     String title = getArguments().getString(KEY_TITLE, null);
     if (title != null)
     {
