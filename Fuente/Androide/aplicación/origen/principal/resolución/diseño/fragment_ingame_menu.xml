@@ -8,6 +8,19 @@
               android:background="?attr/colorPrimaryDark"
               tools:layout_width="250dp">
 
+  <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp" >
+
+    <ImageView
+        android:id="ingame_cover"
+        android:layout_width="50dp"
+        android:layout_height="70dp" 
+        android:scaleType="centerCrop"
+        android:src="@drawable/no_banner" />
+
     <TextView
         android:id="@+id/text_game_title"
         android:layout_width="match_parent"
@@ -17,10 +30,10 @@
         android:textSize="20sp"
         android:maxLines="@integer/game_title_lines"
         android:ellipsize="end"
-        android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginLeft="10dp"
         android:textStyle="bold"/>
+
+</LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
