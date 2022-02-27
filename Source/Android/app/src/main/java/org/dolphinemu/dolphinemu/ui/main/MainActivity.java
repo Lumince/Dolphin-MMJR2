@@ -186,7 +186,6 @@ public final class MainActivity extends AppCompatActivity
     refreshGameList(pref.getBoolean(PREF_GAMELIST, true));
 
     mSwipeRefreshLayout = findViewById(R.id.swipe_refresh_layout);
-    mSwipeRefreshLayout.setColorSchemeResources(R.color.dolphin_purple);
     mSwipeRefreshLayout.setOnRefreshListener(this::onRefresh);
   }
 
