@@ -12,10 +12,6 @@
         android:layout_height="match_parent"
         android:background="@color/dolphin_background"/>
 
-    <org.dolphinemu.dolphinemu.ui.NVidiaShieldWorkaroundView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

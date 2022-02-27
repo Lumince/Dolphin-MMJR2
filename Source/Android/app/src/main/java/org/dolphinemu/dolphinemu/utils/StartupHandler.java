@@ -45,10 +45,6 @@ public final class StartupHandler
     // Ask the user if he wants to enable analytics if we haven't yet.
     //Analytics.checkAnalyticsInit(parent);
 
-    // Set up and/or sync Android TV channels
-    if (TvUtil.isLeanback(parent))
-      TvUtil.scheduleSyncingChannel(parent);
-
     String[] gamesToLaunch = getGamesFromIntent(parent.getIntent());
     if (gamesToLaunch != null && gamesToLaunch.length > 0) 
     {

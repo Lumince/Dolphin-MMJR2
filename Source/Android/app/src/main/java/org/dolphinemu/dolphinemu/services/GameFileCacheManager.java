@@ -36,6 +36,11 @@ public final class GameFileCacheManager
   {
   }
 
+  public static List<GameFile> getAllGameFiles()
+  {
+    return Arrays.asList(gameFiles.getValue());
+  }
+
   public static LiveData<GameFile[]> getGameFiles()
   {
     return gameFiles;

@@ -19,8 +19,8 @@ public class GameViewHolder extends RecyclerView.ViewHolder
 {
   public ImageView imageScreenshot;
   public TextView textGameTitle;
-  public TextView textGameCaption;
-  public TextView textGameCountry;
+  public TextView textCompany;
+  public TextView textPlatform;
 
   public GameFile gameFile;
 
@@ -32,7 +32,7 @@ public class GameViewHolder extends RecyclerView.ViewHolder
 
     imageScreenshot = itemView.findViewById(R.id.image_game_screen);
     textGameTitle = itemView.findViewById(R.id.text_game_title);
-    textGameCaption = itemView.findViewById(R.id.text_game_caption);
-    textGameCountry = itemView.findViewById(R.id.text_country);
+    textCompany = itemView.findViewById(R.id.text_company);
+    textPlatform = itemView.findViewById(R.id.text_platform);
   }
 }

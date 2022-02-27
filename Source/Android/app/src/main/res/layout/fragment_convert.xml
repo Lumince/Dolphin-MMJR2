@@ -119,6 +119,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="?attr/colorAccent"
         android:text="@string/convert_convert"
+        android:background="@drawable/button_primary_gradient"
         android:textColor="@color/button_text_color"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

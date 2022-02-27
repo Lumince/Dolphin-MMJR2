@@ -324,25 +324,6 @@ public final class DirectoryInitialization
       }
     }
   }
-  
-  public static boolean preferOldFolderPicker(Context context)
-  {
-    // As of January 2021, ACTION_OPEN_DOCUMENT_TREE seems to be broken on the Nvidia Shield TV
-    // (the activity can't be navigated correctly with a gamepad). We can use the old folder picker
-    // for the time being - Android 11 hasn't been released for this device. We have an explicit
-    // check for Android 11 below in hopes that Nvidia will fix this before releasing Android 11.
-    //
-    // No Android TV device other than the Nvidia Shield TV is known to have an implementation of
-    // ACTION_OPEN_DOCUMENT or ACTION_OPEN_DOCUMENT_TREE that even launches, but "fortunately", no
-    // Android TV device other than the Shield TV is known to be able to run Dolphin (either due to
-    // the 64-bit requirement or due to the GLES 3.0 requirement), so we can ignore this problem.
-    //
-    // All phones which are running a compatible version of Android support ACTION_OPEN_DOCUMENT and
-    // ACTION_OPEN_DOCUMENT_TREE, as this is required by the mobile Android CTS (unlike Android TV).
-
-    return Build.VERSION.SDK_INT < Build.VERSION_CODES.R &&
-            PermissionsHandler.isExternalStorageLegacy() && TvUtil.isLeanback(context);
-  }
 
   private static boolean isExternalFilesDirEmpty(Context context)
   {

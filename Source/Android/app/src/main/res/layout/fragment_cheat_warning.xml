@@ -24,6 +24,7 @@
         android:layout_height="match_parent"
         android:layout_margin="@dimen/spacing_large"
         android:text="@string/cheats_disabled_warning"
+        android:background="@drawable/button_primary_gradient"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/button_settings"
         app:layout_constraintStart_toStartOf="parent"

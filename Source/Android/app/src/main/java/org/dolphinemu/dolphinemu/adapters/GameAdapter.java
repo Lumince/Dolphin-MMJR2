@@ -28,6 +28,7 @@ public final class GameAdapter extends RecyclerView.Adapter<GameViewHolder> impl
         View.OnClickListener,
         View.OnLongClickListener
 {
+  private int mResourceId;
   private List<GameFile> mGameFiles;
 
   /**
@@ -43,7 +44,7 @@ public final class GameAdapter extends RecyclerView.Adapter<GameViewHolder> impl
    * Called by the LayoutManager when it is necessary to create a new view.
    *
    * @param parent   The RecyclerView (I think?) the created view will be thrown into.
-   * @param viewType Not used here, but useful when more than one type of child will be used in the RecyclerView.
+   * @param viewType Useful when more than one type of child will be used in the RecyclerView.
    * @return The created ViewHolder with references to all the child view's members.
    */
   @Override
@@ -51,13 +52,19 @@ public final class GameAdapter extends RecyclerView.Adapter<GameViewHolder> impl
   {
     // Create a new view.
     View gameCard = LayoutInflater.from(parent.getContext())
-            .inflate(R.layout.card_game, parent, false);
+            .inflate(viewType, parent, false);
 
     gameCard.setOnClickListener(this);
     gameCard.setOnLongClickListener(this);
 
     // Use that view to create a ViewHolder.
     return new GameViewHolder(gameCard);
+  }
+
+  @Override
+  public int getItemViewType(int position)
+  {
+    return mResourceId;
   }
 
   /**
@@ -71,20 +78,18 @@ public final class GameAdapter extends RecyclerView.Adapter<GameViewHolder> impl
   @Override
   public void onBindViewHolder(GameViewHolder holder, int position)
   {
-    Context context = holder.itemView.getContext();
     GameFile gameFile = mGameFiles.get(position);
-    PicassoUtils.loadGameCover(holder.imageScreenshot, gameFile);
-
-    String country = context.getResources().getStringArray(R.array.countryNames)[gameFile.getCountry()];
+    gameFile.loadGameBanner(holder.imageScreenshot);
     holder.textGameTitle.setText(gameFile.getTitle());
-    holder.textGameCountry.setText(country);
+    holder.textCompany.setText(gameFile.getCompany());
 
-    if (GameFileCacheManager.findSecondDisc(gameFile) != null)
-    {
-      holder.textGameCaption
-              .setText(context.getString(R.string.disc_number, gameFile.getDiscNumber() + 1));
-      holder.textGameCaption.setVisibility(View.VISIBLE);
-    }
+    final int[] platforms =
+            {R.string.game_platform_ngc, R.string.game_platform_wii, R.string.game_platform_ware};
+    Context context = holder.textPlatform.getContext();
+    String[] countryNames = context.getResources().getStringArray(R.array.countryNames);
+    String platform = context.getString(platforms[gameFile.getPlatform()],
+            countryNames[gameFile.getCountry()]);
+    holder.textPlatform.setText(platform);
 
     holder.gameFile = gameFile;
   }
@@ -119,6 +124,11 @@ public final class GameAdapter extends RecyclerView.Adapter<GameViewHolder> impl
   {
     mGameFiles = gameFiles;
     notifyDataSetChanged();
+  }
+
+  public void setResourceId(int resId)
+  {
+    mResourceId = resId;
   }
 
   /**

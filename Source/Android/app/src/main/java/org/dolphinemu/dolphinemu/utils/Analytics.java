@@ -92,8 +92,7 @@ public class Analytics
       case DEVICE_OS:
         return String.valueOf(Build.VERSION.SDK_INT);
       case DEVICE_TYPE:
-        return TvUtil.isLeanback(DolphinApplication.getAppContext()) ? "android-tv" :
-                "android-mobile";
+        return "android-mobile";
       default:
         return "";
     }
