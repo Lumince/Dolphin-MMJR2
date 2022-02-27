@@ -92,7 +92,7 @@ public final class StartupHandler
         return paths;
 
       // 4. File path, single
-      String path = extras.getString("AutoStartFile");
+      String path = extras.getString("AutoStartFile"); // shortcut
       if (!TextUtils.isEmpty(path))
         return new String[]{path};
     }
