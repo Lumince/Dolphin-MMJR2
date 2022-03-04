@@ -5,6 +5,9 @@
 
 package org.dolphinemu.dolphinemu;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.DisplayMetrics;
@@ -629,6 +632,13 @@ public final class NativeLibrary
     Log.verbose("[NativeLibrary] Unregistering EmulationActivity.");
 
     sEmulationActivity.clear();
+  }
+
+  public static boolean isNetworkConnected(Context context)
+  {
+    ConnectivityManager cm = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+    NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+    return activeNetwork != null && activeNetwork.isConnected();
   }
 
   @Keep

@@ -10,9 +10,10 @@ import java.io.FileOutputStream;
 
 public final class CoverHelper
 {
-  public static String buildGameTDBUrl(GameFile game, String region)
+  public static String buildGameTDBUrl(GameFile game)
   {
     String baseUrl = "https://art.gametdb.com/wii/cover/%s/%s.png";
+    String region = getRegion(game);
     return String.format(baseUrl, region, game.getGameTdbId());
   }
 

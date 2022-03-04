@@ -14,7 +14,6 @@ import org.dolphinemu.dolphinemu.DolphinApplication;
 import org.dolphinemu.dolphinemu.features.settings.model.Settings;
 import org.dolphinemu.dolphinemu.features.settings.model.AbstractStringSetting;
 import org.dolphinemu.dolphinemu.ui.main.MainActivity;
-import org.dolphinemu.dolphinemu.ui.main.TvMainActivity;
 import org.dolphinemu.dolphinemu.activities.EmulationActivity;
 import org.dolphinemu.dolphinemu.features.settings.ui.SettingsActivity;
 
@@ -114,28 +113,6 @@ public class AppTheme
         case AppTheme.MMJR_AMOLED:
         default:
           themeId = R.style.Theme_DolphinSettings_MmjrAmoled;
-          break;
-      }
-    }
-    else if (activity instanceof TvMainActivity)
-    {
-      switch (theme)
-      {
-        case AppTheme.NEON_RED:
-          themeId = R.style.Theme_DolphinTv_NeonRed;
-          break;
-        case AppTheme.DOLPHIN_BLUE:
-          themeId = R.style.Theme_DolphinTv_DolphinBlue;
-          break;
-        case AppTheme.LUIGI_GREEN:
-          themeId = R.style.Theme_DolphinTv_LuigiGreen;
-          break;
-        case AppTheme.MMJR_PURPLE:
-          themeId = R.style.Theme_DolphinTv_MmjrPurple;
-          break;
-        case AppTheme.MMJR_AMOLED:
-        default:
-          themeId = R.style.Theme_DolphinTv_MmjrAmoled;
           break;
       }
     }

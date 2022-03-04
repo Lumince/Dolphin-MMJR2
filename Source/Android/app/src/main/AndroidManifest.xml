@@ -63,19 +63,6 @@
         </activity>
 
         <activity
-            android:name=".ui.main.TvMainActivity"
-            android:exported="true"
-            android:theme="@style/DolphinTvBase">
-
-            <!-- This intentfilter marks this Activity as the one that gets launched from Home screen. -->
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LEANBACK_LAUNCHER"/>
-            </intent-filter>
-        </activity>
-
-        <activity
             android:name=".features.settings.ui.SettingsActivity"
             android:exported="false"
             android:configChanges="orientation|screenSize"
@@ -107,19 +94,6 @@
         </activity>
 
         <activity
-            android:name=".activities.AppLinkActivity"
-            android:exported="true">
-
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data
-                    android:host="@string/host"
-                    android:scheme="@string/scheme"/>
-            </intent-filter>
-        </activity>
-
-        <activity
             android:name=".activities.ConvertActivity"
             android:exported="false"
             android:theme="@style/DolphinBase" />
@@ -136,16 +110,6 @@
 			android:id="@+id/properties_start_with_riivolution"
             android:theme="@style/DolphinBase" />
 
-        <service
-            android:name=".services.SyncChannelJobService"
-            android:exported="false"
-            android:permission="android.permission.BIND_JOB_SERVICE"/>
-
-        <service
-            android:name=".services.SyncProgramsJobService"
-            android:exported="false"
-            android:permission="android.permission.BIND_JOB_SERVICE"/>
-
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.filesprovider"
@@ -158,4 +122,4 @@
 
     </application>
 
-</manifest>
+</manifest>

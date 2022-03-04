@@ -68,7 +68,7 @@ public class PicassoUtils
     else if (BooleanSetting.MAIN_USE_GAME_COVERS.getBooleanGlobal())
     {
       Picasso.get()
-              .load(CoverHelper.buildGameTDBUrl(gameFile, CoverHelper.getRegion(gameFile)))
+              .load(CoverHelper.buildGameTDBUrl(gameFile))
               .noFade()
               .noPlaceholder()
               .fit()
@@ -88,7 +88,7 @@ public class PicassoUtils
                 public void onError(Exception ex) // Second pass using US region
                 {
                   Picasso.get()
-                          .load(CoverHelper.buildGameTDBUrl(gameFile, "US"))
+                          .load(CoverHelper.buildGameTDBUrl(gameFile))
                           .fit()
                           .noFade()
                           .fit()
@@ -110,7 +110,7 @@ public class PicassoUtils
                             public void onError(Exception ex) // Third and last pass using EN region
                             {
                               Picasso.get()
-                                      .load(CoverHelper.buildGameTDBUrl(gameFile, "EN"))
+                                      .load(CoverHelper.buildGameTDBUrl(gameFile))
                                       .fit()
                                       .noFade()
                                       .fit()
