@@ -19,13 +19,18 @@ bool onHotkeyEvent(int id, bool showMessage)
             newValue = !Config::Get(Config::GFX_HACK_EFB_ACCESS_ENABLE);
             Config::SetCurrent(Config::GFX_HACK_EFB_ACCESS_ENABLE, newValue);
             SHOW_MESSAGE(StringFromFormat("Skip EFB Access from CPU: %s", newValue ? "OFF" : "ON"))
-            //java code treats this setting as inverted, so invert it before it's returned
+            // java code treats this setting as inverted, so invert it before it's returned
             newValue = !newValue;
             break;
         case Hotkey::HK_TOGGLE_EFBCOPIES:
             newValue = !Config::Get(Config::GFX_HACK_SKIP_EFB_COPY_TO_RAM);
             Config::SetCurrent(Config::GFX_HACK_SKIP_EFB_COPY_TO_RAM, newValue);
             SHOW_MESSAGE(StringFromFormat("Store EFB Copies to Texture: %s", newValue ? "ON" : "OFF"))
+            break;
+        case Hotkey::HK_TOGGLE_FAST_FORWARD:
+            newValue = !Config::Get(Config::MAIN_FAST_FORWARD_HOTKEY);
+            Config::SetCurrent(Config::MAIN_FAST_FORWARD_HOTKEY, newValue);
+            SHOW_MESSAGE(StringFromFormat("Fast Forward: %s", newValue ? "ON" : "OFF"))
             break;
         default:
             return false;
@@ -41,6 +46,8 @@ bool getHotkeyState(int id) {
             return !Config::Get(Config::GFX_HACK_EFB_ACCESS_ENABLE);
         case Hotkey::HK_TOGGLE_EFBCOPIES:
             return Config::Get(Config::GFX_HACK_SKIP_EFB_COPY_TO_RAM);
+        case Hotkey::HK_TOGGLE_FAST_FORWARD:
+            return Config::Get(Config::MAIN_FAST_FORWARD_HOTKEY);
         default:
             return false;
     }

@@ -184,7 +184,7 @@ void ThrottleCallback(u64 last_time, s64 cyclesLate)
         (s_emu_to_real_time_index + 1) % s_emu_to_real_time_ring_buffer.size();
   }
 
-  if (frame_limiter)
+  if (frame_limiter && !Config::Get(Config::MAIN_FAST_FORWARD_HOTKEY))
   {
     if (emulation_speed != 1.0f)
       next_event = u32(next_event * emulation_speed);

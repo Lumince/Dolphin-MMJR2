@@ -484,6 +484,7 @@
         <item>Disabled</item>
         <item>Skip EFB Access from CPU</item>
         <item>Store EFB Copies to Texture Only</item>
+        <item>Fast Forward</item>
     </string-array>
 
     <string-array name="motionControlsEntries">

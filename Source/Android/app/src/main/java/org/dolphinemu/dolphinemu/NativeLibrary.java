@@ -236,6 +236,7 @@ public final class NativeLibrary
     public static final int HOTKEY = 900;
     public static final int HK_TOGGLE_EFB_ACCESS = 901;
     public static final int HK_TOGGLE_EFBCOPIES = 902;
+    public static final int HK_TOGGLE_FAST_FORWARD = 903;
   }
 
   /**
