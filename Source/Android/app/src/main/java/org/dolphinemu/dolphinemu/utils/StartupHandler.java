@@ -30,8 +30,9 @@ public final class StartupHandler
       obj.toString();
     }
 
-    // Ask the user to grant write permission if it's not already granted
-    PermissionsHandler.checkWritePermission(parent);
+    // Ask the user to grant write permission if relevant and not already granted
+    if (DirectoryInitialization.isWaitingForWriteAccess(parent))
+      PermissionsHandler.requestWritePermission(parent);
 
     // Ask the user if he wants to check for updates at startup if we haven't yet.
     // If allowed, check for updates.

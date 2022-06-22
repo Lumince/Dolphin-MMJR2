@@ -12,6 +12,7 @@ import android.text.TextUtils;
 
 import org.dolphinemu.dolphinemu.NativeLibrary;
 import org.dolphinemu.dolphinemu.R;
+import org.dolphinemu.dolphinemu.activities.UserDataActivity;
 import org.dolphinemu.dolphinemu.features.settings.model.AbstractIntSetting;
 import org.dolphinemu.dolphinemu.features.settings.model.AbstractStringSetting;
 import org.dolphinemu.dolphinemu.features.settings.model.AdHocBooleanSetting;
@@ -190,7 +191,7 @@ public final class SettingsFragmentPresenter
       case HACKS:
         addHackSettings(sl);
         break;
-		
+
       case ADVANCED_GRAPHICS:
         addAdvancedGraphicsSettings(sl);
         break;
@@ -259,6 +260,8 @@ public final class SettingsFragmentPresenter
     sl.add(new SubmenuSetting(mContext, R.string.wii_submenu, MenuTag.CONFIG_WII));
     sl.add(new SubmenuSetting(mContext, R.string.log_submenu, MenuTag.CONFIG_LOG));
     sl.add(new SubmenuSetting(mContext, R.string.debug_submenu, MenuTag.DEBUG));
+    sl.add(new RunRunnable(mContext, R.string.user_data_submenu, 0, 0, 0,
+            () -> UserDataActivity.launch(mContext)));
     sl.add(new HeaderSetting(mContext, R.string.gametdb_thanks,0));
     sl.add(new HeaderSetting(mContext, R.string.dev_thanks,0));
   }
@@ -268,7 +271,7 @@ public final class SettingsFragmentPresenter
     sl.add(new HeaderSetting(mContext, R.string.advanced_submenu2, 0));
     sl.add(new CheckBoxSetting(mContext, BooleanSetting.MAIN_CPU_THREAD, R.string.dual_core,
             R.string.dual_core_description));
-			
+
     sl.add(new CheckBoxSetting(mContext, BooleanSetting.MAIN_OVERRIDE_REGION_SETTINGS,
             R.string.override_region_settings, 0));
     sl.add(new CheckBoxSetting(mContext, BooleanSetting.MAIN_AUTO_DISC_CHANGE,
