@@ -69,7 +69,7 @@ public class AfterDirectoryInitializationRunner
     }
     else if (abortOnFailure &&
             showErrorMessage(activity,
-                    DirectoryInitialization.getDolphinDirectoriesState().getValue()))																				 
+                    DirectoryInitialization.getDolphinDirectoriesState().getValue()))
     {
       runFinishedCallback();
     }
@@ -150,11 +150,6 @@ public class AfterDirectoryInitializationRunner
   {
     switch (state)
     {
-
-      case EXTERNAL_STORAGE_PERMISSION_NEEDED:
-        Toast.makeText(context, R.string.write_permission_needed, Toast.LENGTH_LONG).show();
-        return true;
-
       case CANT_FIND_EXTERNAL_STORAGE:
         Toast.makeText(context, R.string.external_storage_not_mounted, Toast.LENGTH_LONG).show();
         return true;

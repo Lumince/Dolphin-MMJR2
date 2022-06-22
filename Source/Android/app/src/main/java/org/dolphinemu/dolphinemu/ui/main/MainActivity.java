@@ -75,7 +75,7 @@ public final class MainActivity extends AppCompatActivity
     if (savedInstanceState == null)
       StartupHandler.HandleInit(this);
 
-    if (PermissionsHandler.hasWriteAccess(this))
+    if (!DirectoryInitialization.isWaitingForWriteAccess(this))
     {
       new AfterDirectoryInitializationRunner()
               .runWithLifecycle(this, false, this::setPlatformTabsAndStartGameFileCacheService);
@@ -266,16 +266,14 @@ public final class MainActivity extends AppCompatActivity
 
     if (requestCode == PermissionsHandler.REQUEST_CODE_WRITE_PERMISSION)
     {
-      if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
+      if (grantResults[0] == PackageManager.PERMISSION_DENIED)
       {
-        DirectoryInitialization.start(this);
-        new AfterDirectoryInitializationRunner()
-                .runWithLifecycle(this, false, this::setPlatformTabsAndStartGameFileCacheService);
+        PermissionsHandler.setWritePermissionDenied();
       }
-      else
-      {
-        Toast.makeText(this, R.string.write_permission_needed, Toast.LENGTH_LONG).show();
-      }
+
+      DirectoryInitialization.start(this);
+      new AfterDirectoryInitializationRunner()
+        .runWithLifecycle(this, false, this::setPlatformTabsAndStartGameFileCacheService);
     }
   }
 

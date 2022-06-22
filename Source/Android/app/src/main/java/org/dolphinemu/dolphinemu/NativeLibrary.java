@@ -378,6 +378,8 @@ public final class NativeLibrary
    */
   public static native String GetUserDirectory();
 
+  public static native void SetCacheDirectory(String directory);
+
   public static native int DefaultCPUCore();
 
   public static native String GetDefaultGraphicsBackendName();
@@ -415,7 +417,7 @@ public final class NativeLibrary
   /**
    * Begins emulation from the specified savestate.
    */
-   
+
   public static native void Run(String[] path, boolean riivolution, String savestatePath,
           boolean deleteSavestate);
 
